@@ -1,0 +1,101 @@
+
+
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+	<title>DOCTOR - Responsive HTML &amp; Bootstrap Template</title>
+	<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,800,700,300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=BenchNine:300,400,700' rel='stylesheet' type='text/css'>
+	<script src="{% static 'js/modernizr.js' %}"></script>
+	<!--[if lt IE 9]>
+      <script src="{% static 'js/html5shiv.js' %}"></script>
+      <script src="{% static 'js/respond.min.js' %}"></script>
+    <![endif]-->
+
+</head>
+<body>
+
+	<!-- ====================================================
+	header section -->
+	<header class="top-header" style="height=152px;">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-5 header-logo">
+					<br>
+					<h2><a href="index.html">Quarentine Beds</a></h2>
+				</div>
+
+				<div class="col-md-7">
+					<nav class="navbar navbar-default" style="height=200 px;">
+					  <div class="container-fluid nav-bar">
+					    <!-- Brand and toggle get grouped for better mobile display -->
+					    <div class="navbar-header">
+					      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					        <span class="sr-only">Toggle navigation</span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					        <span class="icon-bar"></span>
+					      </button>
+					    </div>
+					    <!-- Collect the nav links, forms, and other content for toggling -->
+					    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					      <ul class="nav navbar-nav navbar-right">
+							   <li><a class="menu active" href="{% url 'search' %}">SEARCH PLACE</a></li>
+                              <li><a class="menu active" href="{% url 'disp' %}">VIEW PLACES</a></li>
+                              <li><a class="menu active" href="{% url 'mmi' %}">MEDIC INFO</a></li>
+							  <li><a class="menu active" href="{% url 'medic_info' %}">VIEW INFO</a></li>
+
+					      </ul>
+					    </div><!-- /navbar-collapse -->
+					  </div><!-- / .container-fluid -->
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+	  <br>
+
+    <section class="slider" id="home">
+		<div class="container-fluid">
+			<div class="row">
+			    <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel">
+					<div class="header-backup"></div>
+			        <!-- Wrapper for slides -->
+                    <center>
+
+                        <table class="table" border="2" style="width:80%">
+							<thead class="thead-dark">
+							<tr>
+								<th><h2 style="text-align:center;">ID</h2></th>
+								<th><h2 style="text-align:center;">PLACE</h2></th>
+								<th><h2 style="text-align:center;">BEDS COUNT</h2></th>
+							</tr>
+							</thead>
+							<tbody>
+							{% for i in data %}
+							<tr>
+								<td><h3 style="text-align:center;">{{ i.id }}</h3></td>
+								<td><h3 style="text-align:center;">{{ i.place }}</h3></td>
+								<td><h3 style="text-align:center;">{{ i.number_of_beds }}</h3></td>
+							</tr>
+							{% endfor %}
+							</tbody>
+                        </table>
+                    </center>
+
+			        <!-- Controls -->
+			    </div>
+			</div>
+		</div>
+	</section>
+
+
+
